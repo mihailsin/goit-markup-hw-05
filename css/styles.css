@@ -106,7 +106,7 @@ img {
   height: 4px;
   border-radius: 2px;
 
-  background-image: url(../images/current-underline.svg);
+  background-color: var(--accent-color);
   background-size: cover;
   background-repeat: no-repeat;
 }
