@@ -18,13 +18,14 @@
   --footer-bckg-color: #2f303a;
   --subimage-box-color: #eeeeee;
   --header-border-color: #ececec;
+  --modal-btn-hover-color: #188ce8;
   /* Overlay colors */
   --hero-overlay-color: rgba(47, 48, 58, 0.4);
   --features-overlay-color: rgba(47, 48, 58, 0.8);
   --portfolio-overlay-color: rgba(33, 150, 243, 0.9);
 
   /* Misc */
-  --transform-time-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transform-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   box-sizing: border-box;
@@ -163,7 +164,7 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
 
-  transition: color 250ms var(--transform-time-function);
+  transition: color 250ms var(--transform-timing-function);
 }
 
 .nav-list .link:hover,
@@ -187,7 +188,7 @@ img {
 
   color: var(--primary-text-color);
 
-  transition: color 250ms var(--transform-time-function);
+  transition: color 250ms var(--transform-timing-function);
 }
 
 .contact-icon {
@@ -195,7 +196,7 @@ img {
 
   fill: var(--primary-text-color);
 
-  transition: fill 250ms var(--transform-time-function);
+  transition: fill 250ms var(--transform-timing-function);
 }
 
 .header-contacts-list .link:hover .contact-icon,
@@ -244,6 +245,7 @@ img {
   padding-bottom: 10px;
   padding-left: 32px;
   padding-right: 32px;
+  border: none;
   border-radius: 4px;
 
   color: var(--hero-text-color);
@@ -255,6 +257,12 @@ img {
   letter-spacing: 0.06em;
   cursor: pointer;
   text-align: center;
+
+  transition: background-color 250ms var(--transform-timing-function);
+}
+.modal-open-btn:hover,
+.modal-open-btn:focus {
+  background-color: var(--modal-btn-hover-color);
 }
 /* Advantages */
 .advantages-title {
@@ -395,8 +403,8 @@ img {
   fill: var(--primary-icon-fill);
   background-color: var(--whitetext-color);
 
-  transition: fill 250ms var(--transform-time-function),
-    background-color 250ms var(--transform-time-function);
+  transition: fill 250ms var(--transform-timing-function),
+    background-color 250ms var(--transform-timing-function);
 }
 .social-icon {
   width: 20px;
@@ -429,7 +437,7 @@ img {
 
   fill: var(--primary-icon-fill);
 
-  transition: fill 250ms var(--transform-time-function);
+  transition: fill 250ms var(--transform-timing-function);
 }
 .clients-list .link:hover,
 .clients-list .link:focus {
@@ -477,7 +485,7 @@ img {
   font-size: 14px;
   line-height: 1.71;
 
-  transition: color 250ms var(--transform-time-function);
+  transition: color 250ms var(--transform-timing-function);
 }
 .footer-contacts-list .link:hover,
 .footer-contacts-list .link:focus {
@@ -528,7 +536,7 @@ img {
   fill: var(--whitetext-color);
   background-color: var(--footer-icon-bcg-color);
 
-  transition: background-color 250ms var(--transform-time-function);
+  transition: background-color 250ms var(--transform-timing-function);
 }
 .join-us-list .link:hover,
 .join-us-list .link:focus {
@@ -575,9 +583,9 @@ img {
   text-align: center;
   cursor: pointer;
 
-  transition: color 250ms var(--transform-time-function),
-    background-color 250ms var(--transform-time-function),
-    box-shadow 250ms var(--transform-time-function);
+  transition: color 250ms var(--transform-timing-function),
+    background-color 250ms var(--transform-timing-function),
+    box-shadow 250ms var(--transform-timing-function);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -600,7 +608,7 @@ img {
 }
 .exhibition-list .link {
   display: block;
-  transition: box-shadow 250ms var(--transform-time-function);
+  transition: box-shadow 250ms var(--transform-timing-function);
 }
 .exhibition-list .link:hover,
 .exhibition-list .link:focus {
@@ -626,12 +634,12 @@ img {
   color: var(--whitetext-color);
 
   transform: translateY(100%);
-  transition: transform 250ms var(--transform-time-function);
+  transition: transform 250ms var(--transform-timing-function);
 }
 .exhibition-list .link:hover .portfolio-overlay,
 .exhibition-list .link:focus .portfolio-overlay {
   transform: translateY(0);
-  transition: transform 250ms var(--transform-time-function);
+  transition: transform 250ms var(--transform-timing-function);
 }
 .subimage-box {
   padding: 20px 24px;
@@ -650,6 +658,7 @@ img {
 /* ==========Modal============= */
 .backdrop {
   position: fixed;
+  visibility: visible;
   opacity: 1;
   z-index: 999;
 
@@ -662,7 +671,8 @@ img {
   color: var(--whitetext-color);
   text-align: center;
 
-  transition: opacity 250ms var(--transform-time-function);
+  transition: opacity 250ms var(--transform-timing-function),
+    visibility 250ms var(--transform-timing-function);
 }
 .backdrop-content {
   position: absolute;
@@ -673,7 +683,7 @@ img {
   min-height: 581px;
   background-color: var(--whitetext-color);
 
-  transition: transform 250ms var(--transform-time-function);
+  transition: transform 250ms var(--transform-timing-function);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -681,7 +691,7 @@ img {
   pointer-events: none;
 }
 .backdrop.is-hidden .backdrop-content {
-  transform: translate(-50%, -50%) scale(0.1);
+  transform: translate(-50%, -50%) scale(2);
 }
 .modal-close-btn {
   position: absolute;
